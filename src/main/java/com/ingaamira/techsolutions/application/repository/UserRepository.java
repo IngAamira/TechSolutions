@@ -1,6 +1,6 @@
 package com.ingaamira.techsolutions.application.repository;
 
-import com.icodeapp.ecommerce.domain.User;
+import com.ingaamira.techsolutions.domain.User;
 
 /**
  * Esta interfaz define las operaciones para acceder a los usuarios en el repositorio.
@@ -30,4 +30,5 @@ public interface UserRepository {
      * @return El usuario correspondiente al ID dado, o null si no se encuentra.
      */
     User findById(Integer id);
+
 }

@@ -1,7 +1,7 @@
 package com.ingaamira.techsolutions.application.repository;
 
-import com.icodeapp.ecommerce.domain.Product;
-import com.icodeapp.ecommerce.domain.Stock;
+import com.ingaamira.techsolutions.domain.Product;
+import com.ingaamira.techsolutions.domain.Stock;
 
 import java.util.List;
 
@@ -25,4 +25,5 @@ public interface StockRepository {
      * @return Una lista de registros de inventario asociados al producto dado.
      */
     List<Stock> getStockByProduct(Product product);
+
 }

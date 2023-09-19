@@ -1,7 +1,7 @@
 package com.ingaamira.techsolutions.application.repository;
 
-import com.icodeapp.ecommerce.domain.Product;
-import com.icodeapp.ecommerce.domain.User;
+import com.ingaamira.techsolutions.domain.Product;
+import com.ingaamira.techsolutions.domain.User;
 
 /**
  * Esta interfaz define las operaciones para acceder a los productos en el repositorio.

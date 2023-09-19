@@ -1,6 +1,6 @@
 package com.ingaamira.techsolutions.application.service;
 
-import com.icodeapp.ecommerce.domain.ItemCart;
+import com.ingaamira.techsolutions.domain.ItemCart;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -85,4 +85,5 @@ public class CartService {
     public List<ItemCart> getItemCarts() {
         return itemCarts;
     }
+
 }

@@ -1,6 +1,6 @@
 package com.ingaamira.techsolutions.application.service;
 
-import com.icodeapp.ecommerce.domain.User;
+import com.ingaamira.techsolutions.domain.User;
 
 /**
  * Esta clase proporciona métodos para manejar el proceso de registro de usuarios en la aplicación.

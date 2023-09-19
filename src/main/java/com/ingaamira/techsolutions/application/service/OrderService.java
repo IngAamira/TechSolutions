@@ -1,8 +1,8 @@
 package com.ingaamira.techsolutions.application.service;
 
 import com.icodeapp.ecommerce.application.repository.OrderRepository;
-import com.icodeapp.ecommerce.domain.Order;
-import com.icodeapp.ecommerce.domain.User;
+import com.ingaamira.techsolutions.domain.Order;
+import com.ingaamira.techsolutions.domain.User;
 
 /**
  * Esta clase proporciona métodos para manejar las órdenes en la aplicación.
@@ -48,4 +48,5 @@ public class OrderService {
     public Iterable<Order> getOrdersByuser(User user) {
         return orderRepository.getOrdersByUser(user);
     }
+
 }

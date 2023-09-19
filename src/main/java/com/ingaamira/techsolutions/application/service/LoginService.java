@@ -1,7 +1,7 @@
 package com.ingaamira.techsolutions.application.service;
 
-import com.icodeapp.ecommerce.domain.User;
-import com.icodeapp.ecommerce.domain.UserType;
+import com.ingaamira.techsolutions.domain.User;
+import com.ingaamira.techsolutions.domain.UserType;
 import com.icodeapp.ecommerce.infrastructure.dto.UserDto;
 
 public class LoginService {

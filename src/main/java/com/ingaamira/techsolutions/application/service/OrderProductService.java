@@ -1,8 +1,8 @@
 package com.ingaamira.techsolutions.application.service;
 
 import com.icodeapp.ecommerce.application.repository.OrderProductRepository;
-import com.icodeapp.ecommerce.domain.Order;
-import com.icodeapp.ecommerce.domain.OrderProduct;
+import com.ingaamira.techsolutions.domain.Order;
+import com.ingaamira.techsolutions.domain.OrderProduct;
 
 import java.util.List;
 

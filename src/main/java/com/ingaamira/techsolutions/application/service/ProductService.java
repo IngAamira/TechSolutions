@@ -1,8 +1,8 @@
 package com.ingaamira.techsolutions.application.service;
 
 import com.icodeapp.ecommerce.application.repository.ProductRepository;
-import com.icodeapp.ecommerce.domain.Product;
-import com.icodeapp.ecommerce.domain.User;
+import com.ingaamira.techsolutions.domain.Product;
+import com.ingaamira.techsolutions.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
