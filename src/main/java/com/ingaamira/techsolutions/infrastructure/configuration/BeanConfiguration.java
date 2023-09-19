@@ -1,0 +1,70 @@
+package com.ingaamira.techsolutions.infrastructure.configuration;
+
+import com.ingaamira.techsolutions.application.repository.*;
+import com.ingaamira.techsolutions.application.service.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.web.context.WebApplicationContext;
+
+/**
+ * Esta clase de configuración define y configura los beans utilizados en la aplicación.
+ */
+@Configuration
+public class BeanConfiguration {
+
+    @Bean
+    public ProductService productService(ProductRepository productRepository, UploadFile uploadFile){
+        return new ProductService(productRepository, uploadFile);
+    }
+    @Bean
+    public UploadFile uploadFile(){
+        return new UploadFile();
+    }
+
+    @Bean
+    public StockService stockService(StockRepository stockRepository){
+        return new StockService(stockRepository);
+    }
+    @Bean
+    public ValidateStock validateStock(StockService stockService){
+        return new ValidateStock(stockService);
+    }
+
+    @Bean
+    public OrderService orderService(OrderRepository orderRepository){
+        return new OrderService(orderRepository);
+    }
+
+    @Bean
+    public OrderProductService orderProductService(OrderProductRepository orderProductRepository){
+        return  new OrderProductService(orderProductRepository);
+    }
+    @Bean
+    @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+    public  CartService cartService(){
+        return  new CartService();
+    }
+
+    @Bean
+    public UserService userService(UserRepository userRepository){
+        return  new UserService(userRepository);
+    }
+
+    @Bean
+    public RegistrationService registrationService(UserService userService){
+        return  new RegistrationService(userService);
+    }
+
+    @Bean
+    public LoginService loginService(UserService userService){
+        return new LoginService(userService);
+    }
+
+    @Bean
+    public LogoutService logoutService(){
+        return  new LogoutService();
+    }
+
+}

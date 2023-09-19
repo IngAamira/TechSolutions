@@ -2,12 +2,12 @@ package com.ingaamira.techsolutions.application.service;
 
 import com.ingaamira.techsolutions.domain.User;
 import com.ingaamira.techsolutions.domain.UserType;
-import com.icodeapp.ecommerce.infrastructure.dto.UserDto;
+import com.ingaamira.techsolutions.infrastructure.dto.UserDto;
 
 public class LoginService {
-    private final com.icodeapp.ecommerce.application.service.UserService userService;
+    private final UserService userService;
 
-    public LoginService(com.icodeapp.ecommerce.application.service.UserService userService) {
+    public LoginService(UserService userService) {
         this.userService = userService;
     }
 

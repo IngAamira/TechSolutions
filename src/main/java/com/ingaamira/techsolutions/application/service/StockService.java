@@ -1,6 +1,6 @@
 package com.ingaamira.techsolutions.application.service;
 
-import com.icodeapp.ecommerce.application.repository.StockRepository;
+import com.ingaamira.techsolutions.application.repository.StockRepository;
 import com.ingaamira.techsolutions.domain.Product;
 import com.ingaamira.techsolutions.domain.Stock;
 
@@ -41,4 +41,5 @@ public class StockService {
     public List<Stock> getStockByProduct(Product product) {
         return stockRepository.getStockByProduct(product);
     }
+
 }

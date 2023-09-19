@@ -1,6 +1,6 @@
 package com.ingaamira.techsolutions.application.service;
 
-import com.icodeapp.ecommerce.application.repository.ProductRepository;
+import com.ingaamira.techsolutions.application.repository.ProductRepository;
 import com.ingaamira.techsolutions.domain.Product;
 import com.ingaamira.techsolutions.domain.User;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +15,7 @@ import java.io.IOException;
 public class ProductService {
 
     private final ProductRepository productRepository;
-    private final com.icodeapp.ecommerce.application.service.UploadFile uploadFile;
+    private final UploadFile uploadFile;
 
     /**
      * Constructor de la clase ProductService.
@@ -23,7 +23,7 @@ public class ProductService {
      * @param productRepository El repositorio de productos utilizado para acceder a los datos de los productos.
      * @param uploadFile       La clase que se encarga de subir y eliminar archivos.
      */
-    public ProductService(ProductRepository productRepository, com.icodeapp.ecommerce.application.service.UploadFile uploadFile) {
+    public ProductService(ProductRepository productRepository, UploadFile uploadFile) {
         this.productRepository = productRepository;
         this.uploadFile = uploadFile;
     }

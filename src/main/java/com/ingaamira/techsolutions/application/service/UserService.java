@@ -1,6 +1,6 @@
 package com.ingaamira.techsolutions.application.service;
 
-import com.icodeapp.ecommerce.application.repository.UserRepository;
+import com.ingaamira.techsolutions.application.repository.UserRepository;
 import com.ingaamira.techsolutions.domain.User;
 
 

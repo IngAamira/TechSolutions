@@ -7,7 +7,7 @@ import com.ingaamira.techsolutions.domain.User;
  */
 public class RegistrationService {
 
-    private final com.icodeapp.ecommerce.application.service.UserService userService;
+    private final UserService userService;
 
     /**
      * Constructor de la clase RegistrationService.
@@ -15,7 +15,7 @@ public class RegistrationService {
      * @param userService     El servicio de usuarios utilizado para acceder a los datos de usuarios.
      //* @param passwordEncoder El codificador de contraseñas utilizado para cifrar las contraseñas de los usuarios.
      */
-    public RegistrationService(com.icodeapp.ecommerce.application.service.UserService userService) {
+    public RegistrationService(UserService userService) {
         this.userService = userService;
     }
 
