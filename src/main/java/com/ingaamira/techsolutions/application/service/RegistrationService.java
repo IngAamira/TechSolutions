@@ -12,8 +12,7 @@ public class RegistrationService {
     /**
      * Constructor de la clase RegistrationService.
      *
-     * @param userService     El servicio de usuarios utilizado para acceder a los datos de usuarios.
-     //* @param passwordEncoder El codificador de contraseñas utilizado para cifrar las contraseñas de los usuarios.
+     * @param userService El servicio de usuarios utilizado para acceder a los datos de usuarios.
      */
     public RegistrationService(UserService userService) {
         this.userService = userService;
@@ -25,6 +24,8 @@ public class RegistrationService {
      * @param user El usuario a registrar.
      */
     public void register(User user) {
+        // Cifrar la contraseña antes de almacenarla en la base de datos.
+        user.setPassword(user.getPassword());
         userService.createUser(user);
     }
 

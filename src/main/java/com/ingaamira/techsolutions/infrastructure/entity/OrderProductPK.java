@@ -24,6 +24,4 @@ public class OrderProductPK {
     @ManyToOne(fetch = FetchType.LAZY)
     private ProductEntity productEntity;
 
-    // Resto de los atributos, constructores y métodos si los hubiera.
-
 }

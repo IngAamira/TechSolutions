@@ -68,6 +68,4 @@ public class UserEntity {
      */
     private LocalDateTime dateCreated;
 
-    // Resto de los atributos, constructores y métodos si los hubiera.
-
 }

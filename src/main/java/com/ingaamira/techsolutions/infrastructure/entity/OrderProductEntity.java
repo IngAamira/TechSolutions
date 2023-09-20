@@ -24,7 +24,6 @@ public class OrderProductEntity {
      */
     private Integer quantity;
 
-    // Resto de los atributos, constructores y métodos si los hubiera.
-
-
 }
+
+

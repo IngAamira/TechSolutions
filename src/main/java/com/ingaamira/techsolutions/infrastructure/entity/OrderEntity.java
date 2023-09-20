@@ -31,6 +31,4 @@ public class OrderEntity {
     @ManyToOne
     private UserEntity user;
 
-    // Resto de los atributos, constructores y métodos si los hubiera.
-
 }
