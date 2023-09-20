@@ -55,6 +55,4 @@ public class StockEntity {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private ProductEntity productEntity;
 
-    // Resto de los atributos, constructores y métodos si los hubiera.
-
 }

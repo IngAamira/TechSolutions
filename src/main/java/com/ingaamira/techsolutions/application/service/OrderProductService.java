@@ -3,12 +3,14 @@ package com.ingaamira.techsolutions.application.service;
 import com.ingaamira.techsolutions.application.repository.OrderProductRepository;
 import com.ingaamira.techsolutions.domain.Order;
 import com.ingaamira.techsolutions.domain.OrderProduct;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Esta clase proporciona métodos para manejar los productos de una orden en la aplicación.
  */
+@Service
 public class OrderProductService {
 
     private final OrderProductRepository orderProductRepository;

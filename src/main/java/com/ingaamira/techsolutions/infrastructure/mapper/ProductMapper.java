@@ -24,14 +24,25 @@ public interface ProductMapper {
                     @Mapping(source = "dateCreated", target = "dateCreated"),
                     @Mapping(source = "dateUpdated", target = "dateUpdated"),
                     @Mapping(source = "userEntity", target = "user")
-
             }
     )
-
     Product toProduct(ProductEntity productEntity);
-    Iterable<Product> toProducts (Iterable<ProductEntity> productEntities);
 
+    /**
+     * Convierte una lista de entidades ProductEntity en una lista de objetos de dominio Product.
+     *
+     * @param productEntities La lista de entidades ProductEntity a convertir.
+     * @return La lista de objetos de dominio Product convertidos.
+     */
+    Iterable<Product> toProducts(Iterable<ProductEntity> productEntities);
+
+    /**
+     * Convierte un objeto de dominio Product en una entidad ProductEntity.
+     *
+     * @param product El objeto de dominio Product a convertir.
+     * @return La entidad ProductEntity convertida.
+     */
     @InheritInverseConfiguration
-    ProductEntity toProductEntity (Product product);
+    ProductEntity toProductEntity(Product product);
 
 }

@@ -22,10 +22,10 @@ public interface OrderMapper {
             {
                     @Mapping(source = "id", target = "id"),
                     @Mapping(source = "dateCreated", target = "dateCreated"),
-                    @Mapping(source = "user", target = "user"),
-                    @Mapping(target = "orderProducts", ignore = true)
-            })
-    Order toOrder (OrderEntity orderEntity);
+                    @Mapping(source = "user", target = "user")
+            }
+    )
+    Order toOrder(OrderEntity orderEntity);
 
     /**
      * Convierte una lista de entidades de pedido (OrderEntity) en una lista de objetos de dominio de pedido (Order).
@@ -41,7 +41,6 @@ public interface OrderMapper {
      * @param order El objeto de dominio de pedido a convertir.
      * @return La entidad de pedido convertida.
      */
-    @InheritInverseConfiguration
-    OrderEntity toOrderEntity( Order order);
+    OrderEntity toOrderEntity(Order order);
 
 }

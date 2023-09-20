@@ -10,17 +10,24 @@ import java.time.LocalDateTime;
 
 @Data
 public class UserDto {
+
     private String username;
+
     @NotBlank (message = "Nombre es requerido")
     private String firstName;
+
     @NotBlank (message = "Apellido es requerido")
     private String lastName;
+
     @Email(message = "Debe ingresar un email valido")
     private String email;
+
     @NotBlank (message = "Dirección es requerido")
     private String address;
+
     @NotBlank (message = "Celular es requerido")
     private String cellphone;
+
     @NotBlank (message = "Clave es requerido")
     private String password;
 

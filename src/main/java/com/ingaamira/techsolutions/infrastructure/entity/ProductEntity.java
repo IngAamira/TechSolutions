@@ -64,5 +64,4 @@ public class ProductEntity {
     @ManyToOne
     private UserEntity userEntity;
 
-
 }

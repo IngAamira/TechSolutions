@@ -1,6 +1,7 @@
 package com.ingaamira.techsolutions.application.service;
 
 import com.ingaamira.techsolutions.domain.ItemCart;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * Esta clase representa un servicio para gestionar un carrito de compras.
  */
+@Service
 public class CartService {
 
     private List<ItemCart> itemCarts;
