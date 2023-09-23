@@ -2,14 +2,12 @@ package com.ingaamira.techsolutions.application.service;
 
 import com.ingaamira.techsolutions.domain.Product;
 import com.ingaamira.techsolutions.domain.Stock;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Esta clase proporciona métodos para validar y calcular el saldo del inventario de productos.
  */
-@Service
 public class ValidateStock {
     private final StockService stockService;
 

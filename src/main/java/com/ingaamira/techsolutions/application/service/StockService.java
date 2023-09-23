@@ -3,14 +3,12 @@ package com.ingaamira.techsolutions.application.service;
 import com.ingaamira.techsolutions.application.repository.StockRepository;
 import com.ingaamira.techsolutions.domain.Product;
 import com.ingaamira.techsolutions.domain.Stock;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Esta clase proporciona métodos para manejar el inventario de productos en la aplicación.
  */
-@Service
 public class StockService {
     private final StockRepository stockRepository;
 

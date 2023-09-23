@@ -32,9 +32,5 @@ public class OrderRepositoryImpl implements OrderRepository {
         return orderMapper.toOrders(orderCrudRepository.findAll());
     }
 
-    @Override
-    public Iterable<Order> getOrdersByUser(User user) {
-        return orderMapper.toOrders(orderCrudRepository.findByUser(userMapper.toUserEntity(user)));
-    }
 
 }

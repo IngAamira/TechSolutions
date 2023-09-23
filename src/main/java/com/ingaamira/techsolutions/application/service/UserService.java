@@ -2,13 +2,12 @@ package com.ingaamira.techsolutions.application.service;
 
 import com.ingaamira.techsolutions.application.repository.UserRepository;
 import com.ingaamira.techsolutions.domain.User;
-import org.springframework.stereotype.Service;
+import com.ingaamira.techsolutions.infrastructure.dto.UserDto;
 
 
 /**
  * Esta clase proporciona métodos para manejar los usuarios en la aplicación.
  */
-@Service
 public class UserService {
     private final UserRepository userRepository;
 

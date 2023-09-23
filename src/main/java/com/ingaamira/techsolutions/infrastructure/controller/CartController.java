@@ -1,11 +1,12 @@
 package com.ingaamira.techsolutions.infrastructure.controller;
 
 import com.ingaamira.techsolutions.application.service.CartService;
-import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+/*HttpSession en getCart*/
 
 import java.math.BigDecimal;
 
@@ -51,15 +52,14 @@ public class CartController {
      * Maneja la solicitud para mostrar el contenido del carrito de compras del usuario.
      *
      * @param model       El modelo para la vista.
-     * @param httpSession La sesión HTTP del usuario.
+     //* @param httpSession La sesión HTTP del usuario.
      * @return La vista que muestra el contenido del carrito de compras.
      */
     @GetMapping("/get-cart")
-    public String getCart(Model model, HttpSession httpSession){
+    public String getCart(Model model){
         showCart();
         model.addAttribute("cart", cartService.getItemCarts());
         model.addAttribute("total",cartService.getTotalCart());
-        model.addAttribute("id", httpSession.getAttribute("iduser").toString());
         return "user/cart/cart";
     }
 
