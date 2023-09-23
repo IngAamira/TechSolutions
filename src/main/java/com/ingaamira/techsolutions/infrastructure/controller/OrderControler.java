@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/*HttpSession*/
+
 /**
  * Controlador para manejar las funcionalidades relacionadas con las órdenes de compra del usuario.
  */
@@ -40,13 +42,13 @@ public class OrderControler {
         this.validateStock = validateStock;
     }
 
-    /**
+/*    *//**
      * Muestra un resumen de la orden de compra para el usuario.
      *
      * @param model       El modelo para la vista.
-     * @param httpSession La sesión HTTP del usuario.
+     //* @param httpSession La sesión HTTP del usuario.
      * @return La vista que muestra el resumen de la orden.
-     */
+     *//*
     @GetMapping("/sumary-order")
     public String showSumaryOrder(Model model, HttpSession httpSession){
         log.info("id user desde la variable de session: {}", httpSession.getAttribute("iduser").toString());
@@ -55,6 +57,14 @@ public class OrderControler {
         model.addAttribute("total", cartService.getTotalCart());
         model.addAttribute("user", user);
         model.addAttribute("id", httpSession.getAttribute("iduser").toString());
+        return "user/sumaryorder";
+    }*/
+    @GetMapping("/sumary-order")
+    public String showSumaryOrder(Model model){
+        User user = userService.findById(1);
+        model.addAttribute("cart", cartService.getItemCarts());
+        model.addAttribute("total", cartService.getTotalCart());
+        model.addAttribute("user", user);
         return "user/sumaryorder";
     }
 

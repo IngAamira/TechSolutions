@@ -42,7 +42,7 @@ public class ShoppingListController {
         List<Order> newListOrder = new ArrayList<>();
         User user = userService.findById(Integer.parseInt(httpSession.getAttribute("iduser").toString()));
 
-        Iterable<Order> orders = orderService.getOrdersByuser(user);
+        Iterable<Order> orders = orderService.getOrders();
         for (Order order: orders ) {
             newListOrder.add(getOrdersProducts(order));
         }

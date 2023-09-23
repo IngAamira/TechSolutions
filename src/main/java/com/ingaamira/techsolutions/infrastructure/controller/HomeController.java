@@ -17,7 +17,7 @@ import java.util.List;
  * Controlador para gestionar la página principal y los detalles de los productos.
  */
 @Controller
-@RequestMapping("/home")
+@RequestMapping({"/","","/home"})
 @Slf4j
 public class HomeController {
     private final ProductService productService;
