@@ -1,6 +1,7 @@
 package com.ingaamira.techsolutions.application.service;
 
 import com.ingaamira.techsolutions.domain.User;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * Esta clase proporciona métodos para manejar el proceso de registro de usuarios en la aplicación.
@@ -8,24 +9,15 @@ import com.ingaamira.techsolutions.domain.User;
 public class RegistrationService {
 
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
-    /**
-     * Constructor de la clase RegistrationService.
-     *
-     * @param userService El servicio de usuarios utilizado para acceder a los datos de usuarios.
-     */
-    public RegistrationService(UserService userService) {
+    public RegistrationService(UserService userService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    /**
-     * Registra a un nuevo usuario en la aplicación.
-     *
-     * @param user El usuario a registrar.
-     */
-    public void register(User user) {
-        // Cifrar la contraseña antes de almacenarla en la base de datos.
-        user.setPassword(user.getPassword());
+    public void register(User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.createUser(user);
     }
 

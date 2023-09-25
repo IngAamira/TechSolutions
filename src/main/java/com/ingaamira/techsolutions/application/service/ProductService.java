@@ -3,79 +3,68 @@ package com.ingaamira.techsolutions.application.service;
 import com.ingaamira.techsolutions.application.repository.ProductRepository;
 import com.ingaamira.techsolutions.domain.Product;
 import com.ingaamira.techsolutions.domain.User;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
-/**
- * Esta clase proporciona métodos para manejar los productos en la aplicación.
- */
 @Slf4j
 public class ProductService {
 
     private final ProductRepository productRepository;
     private final UploadFile uploadFile;
 
-    /**
-     * Constructor de la clase ProductService.
-     *
-     * @param productRepository El repositorio de productos utilizado para acceder a los datos de los productos.
-     * @param uploadFile       La clase que se encarga de subir y eliminar archivos.
-     */
     public ProductService(ProductRepository productRepository, UploadFile uploadFile) {
         this.productRepository = productRepository;
         this.uploadFile = uploadFile;
     }
 
-    /**
-     * Obtiene todos los productos almacenados.
-     *
-     * @return Una colección de productos.
-     */
-    public Iterable<Product> getProducts() {
-        return productRepository.getProducts();
+    public Iterable<Product> getProducts(){
+        return  productRepository.getProducts();
     }
 
-    /**
-     * Obtiene todos los productos asociados a un usuario específico.
-     *
-     * @param user El usuario para el cual se quieren obtener los productos.
-     * @return Una colección de productos asociados al usuario dado.
-     */
-    public Iterable<Product> getProductsByUser(User user) {
+    public Iterable<Product> getProductsByUser(User user){
         return productRepository.getProductsByUser(user);
     }
 
-    /**
-     * Obtiene un producto por su ID.
-     *
-     * @param id El ID del producto a obtener.
-     * @return El producto correspondiente al ID dado, o null si no se encuentra.
-     */
-    public Product getProductById(Integer id) {
-        return productRepository.getProductById(id);
+    public Product getProductById(Integer id){
+        return  productRepository.getProductById(id);
     }
 
-    /**
-     * Guarda un producto en el repositorio.
-     *
-     * @param product       El producto a guardar.
-     * @param multipartFile El archivo multimedia asociado al producto.
-     * @return El producto guardado.
-     * @throws IOException Si ocurre un error al manipular el archivo.
-     */
-    public Product saveProduct(Product product, MultipartFile multipartFile) throws IOException {
-        // El resto del código de este método se ha omitido para brevedad.
-        return product;
+    public Product saveProduct(Product product, MultipartFile multipartFile, HttpSession httpSession ) throws IOException{
+        if(product.getId()==null){
+            User user = new User();
+            user.setId( Integer.parseInt(httpSession.getAttribute("iduser").toString()));
+            product.setDateCreated(LocalDateTime.now());
+            product.setDateUpdated(LocalDateTime.now());
+            product.setUser(user);
+            product.setImage(uploadFile.upload(multipartFile));
+            return   productRepository.saveProduct(product);
+        }else{
+            Product productDB= productRepository.getProductById(product.getId());
+            log.info("product : {}", productDB);
+            //sino se carga la imagen toma la que se le guardó al registro
+            if(multipartFile.isEmpty()){
+                product.setImage(productDB.getImage());
+            }else{//guarda la que se le envía actualmente
+                //antes se elimina pero si no es por defecto
+                if (!productDB.getImage().equals("default.jpg")){
+                    uploadFile.delete(productDB.getImage());
+                }
+                product.setImage(uploadFile.upload(multipartFile));
+            }
+            product.setCode(productDB.getCode());
+            product.setUser(productDB.getUser());
+            product.setDateCreated(productDB.getDateCreated());
+            product.setDateUpdated(LocalDateTime.now());
+            return  productRepository.saveProduct(product);
+        }
+
     }
 
-    /**
-     * Elimina un producto por su ID.
-     *
-     * @param id El ID del producto a eliminar.
-     */
-    public void deleteProductById(Integer id) {
+    public void deleteProductById(Integer id){
         productRepository.deleteProductById(id);
     }
 

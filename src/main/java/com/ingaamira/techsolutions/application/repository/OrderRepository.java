@@ -1,6 +1,7 @@
 package com.ingaamira.techsolutions.application.repository;
 
 import com.ingaamira.techsolutions.domain.Order;
+import com.ingaamira.techsolutions.domain.User;
 
 /**
  * Esta interfaz define las operaciones para acceder a las órdenes en el repositorio.
@@ -22,12 +23,12 @@ public interface OrderRepository {
      */
     Iterable<Order> getOrders();
 
-/*    *//**
+    /**
      * Obtiene todas las órdenes asociadas a un usuario específico.
      *
      * @param user El usuario para el cual se quieren obtener las órdenes.
      * @return Una colección de órdenes asociadas al usuario dado.
-     *//*
-    Iterable<Order> getOrdersByUser(User user);*/
+     */
+    Iterable<Order> getOrdersByUser(User user);
 
 }
