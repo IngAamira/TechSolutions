@@ -2,6 +2,7 @@ package com.ingaamira.techsolutions.application.service;
 
 import com.ingaamira.techsolutions.application.repository.OrderRepository;
 import com.ingaamira.techsolutions.domain.Order;
+import com.ingaamira.techsolutions.domain.User;
 
 /**
  * Esta clase proporciona métodos para manejar las órdenes en la aplicación.
@@ -36,6 +37,10 @@ public class OrderService {
      */
     public Iterable<Order> getOrders() {
         return orderRepository.getOrders();
+    }
+
+    public Iterable<Order> getOrdersByUser(User user) {
+        return orderRepository.getOrdersByUser(user);
     }
 
 }
